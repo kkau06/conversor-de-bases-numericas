@@ -78,5 +78,8 @@
     }
 
     gerarTabela();
+    document.getElementById('inputValue').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') converter();
+    });
   </script>
 </html>
