@@ -93,5 +93,67 @@
     </div>
     <p class="subtitle">conversor de bases numéricas · dec · bin · hex · oct</p>
   </header>
+  <div class="card">
+    <div class="input-section">
+      <div>
+        <div class="input-label">Base de origem</div>
+        <div class="base-selector">
+          <button class="base-btn active-dec" data-base="10">
+            <span class="base-name">Decimal</span>
+            <span>base 10</span>
+          </button>
+          <button class="base-btn" data-base="2">
+            <span class="base-name">Binário</span>
+            <span>base 2</span>
+          </button>
+          <button class="base-btn" data-base="16">
+            <span class="base-name">Hexadec.</span>
+            <span>base 16</span>
+          </button>
+          <button class="base-btn" data-base="8">
+            <span class="base-name">Octal</span>
+            <span>base 8</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="input-wrap">
+        <div class="input-label">Número</div>
+        <input
+          type="text"
+          id="inputValue"
+          placeholder="Digite o número..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <div class="error-msg" id="errorMsg"></div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="results-grid" id="resultsGrid">
+      <div class="result-card dec" onclick="copiar('dec')">
+        <div class="result-label">Decimal · base 10</div>
+        <div class="result-value" id="resDec">—</div>
+        <div class="copy-hint">clique para copiar</div>
+      </div>
+      <div class="result-card hex" onclick="copiar('hex')">
+        <div class="result-label">Hexadecimal · base 16</div>
+        <div class="result-value" id="resHex">—</div>
+        <div class="copy-hint">clique para copiar</div>
+      </div>
+      <div class="result-card bin" onclick="copiar('bin')">
+        <div class="result-label">Binário · base 2</div>
+        <div class="result-value" id="resBin">—</div>
+        <div class="copy-hint">clique para copiar</div>
+      </div>
+      <div class="result-card oct" onclick="copiar('oct')">
+        <div class="result-label">Octal · base 8</div>
+        <div class="result-value" id="resOct">—</div>
+        <div class="copy-hint">clique para copiar</div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
