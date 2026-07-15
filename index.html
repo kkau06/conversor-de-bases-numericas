@@ -2,31 +2,14 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    h1 { color: #333; }
-    input, select { padding: 6px; font-size: 14px; }
-    button {
-      padding: 8px 16px;
-      font-size: 14px;
-      cursor: pointer;
-      margin-right: 8px;
-    }
-    table { border-collapse: collapse; margin-top: 10px; }
-    th { background-color: #f0f0f0; }
-    tr:hover { background-color: #f9f9f9; }
-    h3 { color: #444; margin-top: 20px; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Conversor de Bases Numéricas</title>
 </head>
 <body>
+
   <h1>Conversor de Bases Numéricas</h1>
   <p>Digite um número e selecione a base de origem. O resultado será exibido nas demais bases.</p>
+
   <label for="inputValue">Número:</label><br />
   <input type="text" id="inputValue" placeholder="Ex: 255" style="width: 200px;" /><br /><br />
 
@@ -37,11 +20,13 @@
     <option value="16">Hexadecimal (base 16)</option>
     <option value="8">Octal (base 8)</option>
   </select><br /><br />
+
   <button onclick="converter()">Converter</button>
   <button onclick="limpar()">Limpar</button>
 
   <br /><br />
   <div id="resultado"></div>
+
   <br />
   <p><strong>Tabela de referência rápida:</strong></p>
   <table border="1" cellpadding="5" cellspacing="0">
@@ -55,7 +40,7 @@
     </thead>
     <tbody id="tabelaReferencia"></tbody>
   </table>
-</body>
+
   <script>
     function converter() {
       const input = document.getElementById('inputValue').value.trim();
@@ -70,11 +55,10 @@
       const decimal = parseInt(input, base);
 
       if (isNaN(decimal) || decimal < 0) {
-        resultado.innerHTML = `<p style="color:red">Número inválido! Verifique se o valor pertence à base ${base} selecionada.</p>`;
+        resultado.innerHTML = '<p style="color:red">Número inválido para a base selecionada.</p>';
         return;
       }
 
-      const decimal = parseInt(input, base);
       const binario = decimal.toString(2);
       const hex = decimal.toString(16).toUpperCase();
       const octal = decimal.toString(8);
@@ -96,6 +80,8 @@
       document.getElementById('inputValue').value = '';
       document.getElementById('resultado').innerHTML = '';
     }
+
+    // Tabela de referência (0–15)
     function gerarTabela() {
       const tbody = document.getElementById('tabelaReferencia');
       for (let i = 0; i <= 15; i++) {
@@ -110,9 +96,12 @@
       }
     }
 
-    gerarTabela();
     document.getElementById('inputValue').addEventListener('keydown', function(e) {
       if (e.key === 'Enter') converter();
     });
+
+    gerarTabela();
   </script>
+
+</body>
 </html>
