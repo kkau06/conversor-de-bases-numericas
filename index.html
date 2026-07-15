@@ -29,6 +29,18 @@
       const base = parseInt(document.getElementById('inputBase').value);
       const resultado = document.getElementById('resultado');
 
+      if (!input) {
+        resultado.innerHTML = '<p style="color:red">Por favor, insira um número.</p>';
+        return;
+      }
+
+      const decimal = parseInt(input, base);
+
+      if (isNaN(decimal) || decimal < 0) {
+        resultado.innerHTML = `<p style="color:red">Número inválido! Verifique se o valor pertence à base ${base} selecionada.</p>`;
+        return;
+      }
+
       const decimal = parseInt(input, base);
       const binario = decimal.toString(2);
       const hex = decimal.toString(16).toUpperCase();
