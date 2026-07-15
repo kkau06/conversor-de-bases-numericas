@@ -23,4 +23,18 @@
   <br /><br />
   <div id="resultado"></div>
 </body>
+  <script>
+    function converter() {
+      const input = document.getElementById('inputValue').value.trim();
+      const base = parseInt(document.getElementById('inputBase').value);
+      const resultado = document.getElementById('resultado');
+
+      const decimal = parseInt(input, base);
+    }
+
+    function limpar() {
+      document.getElementById('inputValue').value = '';
+      document.getElementById('resultado').innerHTML = '';
+    }
+  </script>
 </html>
